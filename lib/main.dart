@@ -13,7 +13,7 @@ class MusicApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Music App',
+      title: 'Xerol',
       theme: ThemeData(
        // backgroundColor: colo,
         useMaterial3: true,
