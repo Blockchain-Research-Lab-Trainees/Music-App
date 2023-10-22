@@ -1,30 +1,10 @@
-// import 'package:flutter/material.dart';
-
-// class WelcomeScreen extends StatefulWidget {
-//   const WelcomeScreen({super.key});
-
-//   @override
-//   State<WelcomeScreen> createState() => _WelcomeScreenState();
-// }
-
-// class _WelcomeScreenState extends State<WelcomeScreen> {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       backgroundColor: Colors.black,
-//       body: Container(
-
-//       )
-//     );
-//   }
-// }
-
 // to fetch :-
 // albums
 // artists
 // playlists
 
 import 'package:flutter/material.dart';
+import 'package:music_app/screens/custom_widget/recently_played.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -33,17 +13,19 @@ class WelcomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     const border = OutlineInputBorder(
         borderSide: BorderSide(
-          color: Color.fromRGBO(225, 225, 225, 1),
+          color: Colors.white70,
         ),
         borderRadius: BorderRadius.horizontal(
           left: Radius.circular(50),
           right: Radius.circular(50),
         ));
 
-    return const Scaffold(
+    return  const Scaffold(
       //backgroundColor: Colors.black,
       body: SafeArea(
         child: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          
           child: Padding(
             padding: EdgeInsets.all(16.0),
             child: Column(
@@ -75,7 +57,7 @@ class WelcomeScreen extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.only(
                     top: 15,
-                    bottom: 15,
+                    bottom: 25,
                   ),
                   child: Expanded(
                     child: TextField(
@@ -89,11 +71,98 @@ class WelcomeScreen extends StatelessWidget {
                     ),
                   ),
                 ),
+                Text(
+                  'Recently Played',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white70,
+                  ),
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                        RecentPlayed(),
+                        RecentPlayed(),
+                        RecentPlayed(),
+                        RecentPlayed(),
+                        RecentPlayed(),
+                
               ],
+                ),
+              
             ),
+            SizedBox(
+              height: 15,
+            ),
+            Text(
+              'Albums',
+              style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white70,
+                  ),
+            ),
+            SizedBox(
+              height: 15,
+            ),
+            
+            SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                        RecentPlayed(),
+                        RecentPlayed(),
+                        RecentPlayed(),
+                        RecentPlayed(),
+                        RecentPlayed(),
+                
+              ],
+                ),
+              
+            ),
+
+              SizedBox(
+              height: 15,
+            ),
+            Text(
+              'Playlists',
+              style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white70,
+                  ),
+            ),
+            SizedBox(
+              height: 15,
+            ),
+            
+            SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                        RecentPlayed(),
+                        RecentPlayed(),
+                        RecentPlayed(),
+                        RecentPlayed(),
+                        RecentPlayed(),
+                
+              ],
+                ),
+              
+            ),
+
+              ],
           ),
         ),
+        
       ),
-    );
+      ),
+      );
   }
 }
