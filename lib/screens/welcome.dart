@@ -3,29 +3,31 @@
 // artists
 // playlists
 
-import 'package:flutter/material.dart';
-import 'package:music_app/screens/custom_widget/recently_played.dart';
+import 'dart:convert';
 
-class WelcomeScreen extends StatelessWidget {
+import 'package:flutter/material.dart';
+import 'package:music_app/screens/custom_widget/artist.dart';
+import 'package:music_app/screens/custom_widget/search.dart';
+import 'package:http/http.dart' as http;
+
+class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    const border = OutlineInputBorder(
-        borderSide: BorderSide(
-          color: Colors.white70,
-        ),
-        borderRadius: BorderRadius.horizontal(
-          left: Radius.circular(50),
-          right: Radius.circular(50),
-        ));
+  State<WelcomeScreen> createState() => _WelcomeScreenState();
+}
 
-    return  const Scaffold(
+class _WelcomeScreenState extends State<WelcomeScreen> {
+
+
+
+  @override
+  Widget build(BuildContext context) {
+    return const Scaffold(
       //backgroundColor: Colors.black,
       body: SafeArea(
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
-          
           child: Padding(
             padding: EdgeInsets.all(16.0),
             child: Column(
@@ -54,22 +56,9 @@ class WelcomeScreen extends StatelessWidget {
                     color: Colors.white70,
                   ),
                 ),
-                Padding(
-                  padding: EdgeInsets.only(
-                    top: 15,
-                    bottom: 25,
-                  ),
-                  child: Expanded(
-                    child: TextField(
-                      decoration: InputDecoration(
-                        border: border,
-                        enabledBorder: border,
-                        focusedBorder: border,
-                        prefixIcon: Icon(Icons.search),
-                        hintText: 'Search',
-                      ),
-                    ),
-                  ),
+                // Search(border: border, onSearch: (String ) {  },),
+                SizedBox(
+                  height: 30,
                 ),
                 Text(
                   'Recently Played',
@@ -82,87 +71,75 @@ class WelcomeScreen extends StatelessWidget {
                 SizedBox(
                   height: 15,
                 ),
-                
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Row(
                     children: [
-                        RecentPlayed(),
-                        RecentPlayed(),
-                        RecentPlayed(),
-                        RecentPlayed(),
-                        RecentPlayed(),
-                
-              ],
+                      RecentPlayed(),
+                      RecentPlayed(),
+                      RecentPlayed(),
+                      RecentPlayed(),
+                      RecentPlayed(),
+                    ],
+                  ),
                 ),
-              
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            Text(
-              'Albums',
-              style: TextStyle(
+                SizedBox(
+                  height: 15,
+                ),
+                Text(
+                  'Albums',
+                  style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
                     color: Colors.white70,
                   ),
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            
-            SingleChildScrollView(
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Row(
                     children: [
-                        RecentPlayed(),
-                        RecentPlayed(),
-                        RecentPlayed(),
-                        RecentPlayed(),
-                        RecentPlayed(),
-                
-              ],
+                      RecentPlayed(),
+                      RecentPlayed(),
+                      RecentPlayed(),
+                      RecentPlayed(),
+                      RecentPlayed(),
+                    ],
+                  ),
                 ),
-              
-            ),
-
-              SizedBox(
-              height: 15,
-            ),
-            Text(
-              'Playlists',
-              style: TextStyle(
+                SizedBox(
+                  height: 15,
+                ),
+                Text(
+                  'Playlists',
+                  style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
                     color: Colors.white70,
                   ),
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            
-            SingleChildScrollView(
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Row(
                     children: [
-                        RecentPlayed(),
-                        RecentPlayed(),
-                        RecentPlayed(),
-                        RecentPlayed(),
-                        RecentPlayed(),
-                
-              ],
+                      RecentPlayed(),
+                      RecentPlayed(),
+                      RecentPlayed(),
+                      RecentPlayed(),
+                      RecentPlayed(),
+                    ],
+                  ),
                 ),
-              
-            ),
-
               ],
+            ),
           ),
         ),
-        
       ),
-      ),
-      );
+    );
   }
 }
