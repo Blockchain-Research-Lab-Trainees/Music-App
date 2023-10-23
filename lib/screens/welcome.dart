@@ -6,7 +6,9 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:music_app/screens/custom_widget/album.dart';
 import 'package:music_app/screens/custom_widget/artist.dart';
+import 'package:music_app/screens/custom_widget/playlist.dart';
 import 'package:music_app/screens/custom_widget/search.dart';
 import 'package:http/http.dart' as http;
 
@@ -75,11 +77,11 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   scrollDirection: Axis.horizontal,
                   child: Row(
                     children: [
-                      RecentPlayed(),
-                      RecentPlayed(),
-                      RecentPlayed(),
-                      RecentPlayed(),
-                      RecentPlayed(),
+                      Artists(),
+                      Artists(),
+                      Artists(),
+                      Artists(),
+                      Artists(),
                     ],
                   ),
                 ),
@@ -101,11 +103,11 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   scrollDirection: Axis.horizontal,
                   child: Row(
                     children: [
-                      RecentPlayed(),
-                      RecentPlayed(),
-                      RecentPlayed(),
-                      RecentPlayed(),
-                      RecentPlayed(),
+                      Albums(),
+                      Albums(),
+                      Albums(),
+                      Albums(),
+                      Albums(),
                     ],
                   ),
                 ),
@@ -127,11 +129,11 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   scrollDirection: Axis.horizontal,
                   child: Row(
                     children: [
-                      RecentPlayed(),
-                      RecentPlayed(),
-                      RecentPlayed(),
-                      RecentPlayed(),
-                      RecentPlayed(),
+                      Playlist(),
+                      Playlist(),
+                      Playlist(),
+                      Playlist(),
+                      Playlist(),
                     ],
                   ),
                 ),

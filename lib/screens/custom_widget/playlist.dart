@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class RecentPlayed extends StatelessWidget {
-  const RecentPlayed({
+class Playlist extends StatelessWidget {
+  const Playlist({
     super.key,
   });
 
