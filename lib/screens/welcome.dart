@@ -63,7 +63,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   height: 30,
                 ),
                 Text(
-                  'Recently Played',
+                  'Artists',
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
