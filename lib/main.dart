@@ -13,8 +13,14 @@ void main() {
 
 
 
-class MusicApp extends StatelessWidget {
+class MusicApp extends StatefulWidget {
   const MusicApp({super.key});
+
+  @override
+  State<MusicApp> createState() => _MusicAppState();
+}
+
+class _MusicAppState extends State<MusicApp> {
 
   @override
   Widget build(BuildContext context) {
