@@ -3,14 +3,12 @@
 // artists
 // playlists
 
-import 'dart:convert';
-
+//import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:music_app/screens/custom_widget/album.dart';
 import 'package:music_app/screens/custom_widget/artist.dart';
 import 'package:music_app/screens/custom_widget/playlist.dart';
-import 'package:music_app/screens/custom_widget/search.dart';
-import 'package:http/http.dart' as http;
+//import 'package:http/http.dart' as http;
 
 class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({super.key});
@@ -20,9 +18,6 @@ class WelcomeScreen extends StatefulWidget {
 }
 
 class _WelcomeScreenState extends State<WelcomeScreen> {
-
-
-
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
