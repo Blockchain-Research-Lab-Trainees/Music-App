@@ -16,7 +16,7 @@ class Song {
       title: 'Glass',
       description: 'Glass',
       url: 'assets/music/glass.mp3',
-      coverUrl: 'assets/images/glass.jpg',
+      coverUrl: 'assets/images/glass.jpeg',
     ),
     Song(
       title: 'Illusions',
