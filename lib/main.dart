@@ -45,9 +45,9 @@ class _MusicAppState extends State<MusicApp> {
         useMaterial3: true,
         primarySwatch: Colors.amber,
       ),
-      home: const WelcomeScreen(),
+      home: const HomeScreen(),
       getPages: [
-        GetPage(name: '/home', page: () => const WelcomeScreen()),
+        GetPage(name: '/home', page: () => const HomeScreen()),
         GetPage(name: '/playlist', page: () => const Playlist()),
         GetPage(name: '/album', page: () => const Albums()),
         GetPage(name: '/artist', page: () => const Artists()),],
