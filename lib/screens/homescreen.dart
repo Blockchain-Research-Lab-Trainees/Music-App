@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:music_app/models/song_model.dart';
 import 'package:music_app/widget/section_header.dart';
+import 'package:music_app/widget/song_card.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -19,41 +20,60 @@ class HomeScreen extends StatelessWidget {
           end: Alignment.bottomCenter,
         ),
       ),
-      child: const Scaffold(
+      child: Scaffold(
         backgroundColor: Colors.transparent,
-        appBar: _CustomAppbar(),
-        bottomNavigationBar: _CustomBottomNavigationbar(),
+        appBar: const _CustomAppbar(),
+        bottomNavigationBar: const _CustomBottomNavigationbar(),
         body: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
+              const Text(
                 '   Xerol',
                 style: TextStyle(
                     fontSize: 30,
                     fontWeight: FontWeight.bold,
                     color: Colors.white),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
-              Text(
+              const Text(
                 '   Hi there..\n   Euclid',
                 style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
                     color: Colors.white),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
-              _SearchMusic(),
-              Column(
-                children: [
-                  SectionHeader(
-                    title: 'Music for you',
-                  ),
-                ],
+              const _SearchMusic(),
+              Padding(
+                padding: const EdgeInsets.only(bottom: 20, top: 20, left: 20),
+                child: Column(
+                  children: [
+                    const Padding(
+                      padding: EdgeInsets.only(right: 20),
+                      child: SectionHeader(
+                        title: 'Music for you',
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.3,
+                      child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: songs.length,
+                        itemBuilder: (context, index) {
+                          return SongCard(song: songs[index]);
+                        },
+                      ),
+                    )
+                  ],
+                ),
               )
             ],
           ),

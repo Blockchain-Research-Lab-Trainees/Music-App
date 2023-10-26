@@ -1,35 +1,28 @@
 import 'package:flutter/material.dart';
 
-class SectionHeader extends StatefulWidget {
-  const SectionHeader(
-      {super.key, required this.title, this.action = 'View More'});
+class SectionHeader extends StatelessWidget {
+  const SectionHeader({
+    Key? key,
+    required this.title,
+    this.action = 'View More',
+  }) : super(key: key);
 
   final String title;
   final String action;
 
   @override
-  State<SectionHeader> createState() => _SectionHeaderState();
-}
-
-class _SectionHeaderState extends State<SectionHeader> {
-  @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(widget.title,
+        Text(title,
             style: const TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
                 color: Colors.white)),
-        Text(widget.title,
+        Text(action,
             style: const TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-                color: Colors.white)),
-        Text(widget.title,
-            style: const TextStyle(
-                fontSize: 20,
+                fontSize: 12,
                 fontWeight: FontWeight.bold,
                 color: Colors.white)),
       ],
