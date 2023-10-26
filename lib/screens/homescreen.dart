@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:music_app/models/song_model.dart';
+import 'package:music_app/widget/section_header.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    List<Song> songs = Song.songs;
     return Container(
       decoration: BoxDecoration(
         gradient: LinearGradient(
@@ -45,6 +48,13 @@ class HomeScreen extends StatelessWidget {
                 height: 10,
               ),
               _SearchMusic(),
+              Column(
+                children: [
+                  SectionHeader(
+                    title: 'Music for you',
+                  ),
+                ],
+              )
             ],
           ),
         ),
@@ -74,16 +84,13 @@ class _SearchMusic extends StatelessWidget {
             filled: true,
             enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(30),
-                borderSide:
-                    const BorderSide(color: Colors.transparent)),
+                borderSide: const BorderSide(color: Colors.transparent)),
             focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(30),
-                borderSide:
-                    const BorderSide(color: Colors.transparent)),
+                borderSide: const BorderSide(color: Colors.transparent)),
             border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(30),
-                borderSide:
-                    const BorderSide(color: Colors.transparent))),
+                borderSide: const BorderSide(color: Colors.transparent))),
       ),
     );
   }
