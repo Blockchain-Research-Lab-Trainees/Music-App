@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:music_app/custom_widget/album.dart';
-import 'package:music_app/custom_widget/artist.dart';
-import 'package:music_app/custom_widget/playlist.dart';
 //import 'package:google_fonts/google_fonts.dart';
 import 'package:music_app/screens/homescreen.dart';
+import 'package:music_app/screens/playlist_screen.dart';
+import 'package:music_app/screens/song_screen.dart';
 
 void main() {
   runApp(const MusicApp());
@@ -47,10 +46,9 @@ class _MusicAppState extends State<MusicApp> {
       ),
       home: const HomeScreen(),
       getPages: [
-        GetPage(name: '/home', page: () => const HomeScreen()),
-        GetPage(name: '/playlist', page: () => const Playlist()),
-        GetPage(name: '/album', page: () => const Albums()),
-        GetPage(name: '/artist', page: () => const Artists()),],
+       GetPage(name: '/', page: () => const HomeScreen()),
+        GetPage(name: '/song', page: () => const SongScreen()),
+        GetPage(name: '/playlist', page: () => const PlaylistScreen()),],
     );
   }
 }

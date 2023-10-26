@@ -51,7 +51,7 @@ class SongCard extends StatelessWidget {
                       Text(
                         song.title,
                         style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                              color: const Color.fromARGB(255, 21, 234, 92)
+                              color: Color.fromARGB(255, 10, 10, 10)
                                   .withOpacity(0.8),
                               fontWeight: FontWeight.bold,
                             ),
@@ -68,7 +68,7 @@ class SongCard extends StatelessWidget {
                   Icon(
                     Icons.play_circle,
                     color:
-                        const Color.fromARGB(255, 21, 234, 92).withOpacity(0.8),
+                        Color.fromARGB(255, 21, 21, 21).withOpacity(0.8),
                   ),
                 ],
               ),
