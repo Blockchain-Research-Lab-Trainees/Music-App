@@ -116,7 +116,32 @@ class _TrendingMusicState extends State<TrendingMusic> {
                 return SongCard(song: songs[index]);
               },
             ),
-          )
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          for (var playlist in playlists)
+            Column(
+              children: [
+                ListTile(
+                  title: Text('Playlist ${playlists.indexOf(playlist) + 1}' , style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),),
+                ),
+                for (var song in playlist.songs)
+                  ListTile(
+                    leading: Image.network(song.coverUrl),
+                    title: Text(song.title , style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                      color: Color.fromARGB(255, 248, 246, 246)
+                          .withOpacity(0.8),
+                      fontWeight: FontWeight.bold,
+                      fontSize: 10, 
+                    ),),
+                    subtitle: Text(song.description),
+                  ),
+              ],
+            ),
         ],
       ),
     );
