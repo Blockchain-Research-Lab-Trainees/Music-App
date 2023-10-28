@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+//import 'package:get/get.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:music_app/widget/player_button.dart';
 import 'package:music_app/widget/seekbar.dart';
@@ -17,6 +17,7 @@ class SongScreen extends StatefulWidget {
 }
 
 class _SongScreenState extends State<SongScreen> {
+  
   AudioPlayer audioPlayer = AudioPlayer();
   late Song song;
 
@@ -28,12 +29,13 @@ class _SongScreenState extends State<SongScreen> {
       ConcatenatingAudioSource(
         children: [
           AudioSource.uri(
-            Uri.parse('asset:///${song.url}'),
+            Uri.parse(song.url),
           ),
         ],
       ),
     );
   }
+
 
   @override
   void dispose() {

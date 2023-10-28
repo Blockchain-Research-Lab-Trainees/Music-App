@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:just_audio/just_audio.dart';
 import 'package:music_app/models/song_model.dart';
 
 class SongCard extends StatelessWidget {
@@ -65,10 +66,13 @@ class SongCard extends StatelessWidget {
                       ),
                     ],
                   ),
-                  Icon(
-                    Icons.play_circle,
-                    color:
-                        Color.fromARGB(255, 21, 21, 21).withOpacity(0.8),
+                  IconButton(
+                    onPressed:(){}, //playSong(song.url),
+                    icon: const Icon(
+                       Icons.play_arrow,
+                      color: Colors.black,
+                      size: 20
+                    ),
                   ),
                 ],
               ),
@@ -79,4 +83,3 @@ class SongCard extends StatelessWidget {
     );
   }
 }
-
