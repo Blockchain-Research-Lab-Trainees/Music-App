@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:music_app/custom_widget_homescreen/appbar.dart';
+import 'package:music_app/custom_widget_homescreen/playlistx.dart';
+import 'package:music_app/custom_widget_homescreen/search.dart';
+import 'package:music_app/custom_widget_homescreen/trendingmusic.dart';
 import 'package:music_app/models/playlist_model.dart';
 import 'package:music_app/models/song_model.dart';
-import 'package:music_app/widget/playlist_card.dart';
-import 'package:music_app/widget/section_header.dart';
-import 'package:music_app/widget/song_card.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -25,8 +26,8 @@ class HomeScreen extends StatelessWidget {
       ),
       child: Scaffold(
         backgroundColor: Colors.transparent,
-        appBar: const _CustomAppbar(),
-        bottomNavigationBar: const _CustomBottomNavigationbar(),
+        appBar: const CustomAppbar(),
+        bottomNavigationBar: const CustomBottomNavigationbar(),
         body: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -51,9 +52,9 @@ class HomeScreen extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
-              const _SearchMusic(),
-              _TrendingMusic(songs: songs),
-               _PlaylistMusic(playlists: playlists),
+              const SearchMusic(),
+              TrendingMusic(songs: songs),
+              PlaylistMusic(playlists: playlists),
 
             ],
           ),
@@ -65,110 +66,9 @@ class HomeScreen extends StatelessWidget {
 
 
 
-class _PlaylistMusic extends StatelessWidget {
-  const _PlaylistMusic({
-    Key? key,
-    required this.playlists,
-  }) : super(key: key);
 
-  final List<Playlist> playlists;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(20.0),
-      child: Column(
-        children: [
-          const SectionHeader(title: 'Playlists'),
-          ListView.builder(
-            shrinkWrap: true,
-            padding: const EdgeInsets.only(top: 20),
-            physics: const NeverScrollableScrollPhysics(),
-            itemCount: playlists.length,
-            itemBuilder: ((context, index) {
-              return PlaylistCard(playlist: playlists[index]);
-            }),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class _TrendingMusic extends StatelessWidget {
-  const _TrendingMusic({
-    super.key,
-    required this.songs,
-  });
-
-  final List<Song> songs;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 20, top: 20, left: 20),
-      child: Column(
-        children: [
-          const Padding(
-            padding: EdgeInsets.only(right: 20),
-            child: SectionHeader(
-              title: 'Music for you',
-            ),
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.3,
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: songs.length,
-              itemBuilder: (context, index) {
-                return SongCard(song: songs[index]);
-              },
-            ),
-          )
-        ],
-      ),
-    );
-  }
-}
-
-class _SearchMusic extends StatelessWidget {
-  const _SearchMusic({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(12.0),
-      child: TextFormField(
-        decoration: InputDecoration(
-            hintText: 'Search',
-            hintStyle: const TextStyle(color: Colors.white),
-            prefixIcon: const Icon(
-              Icons.search,
-              color: Colors.white,
-            ),
-            fillColor: Colors.white.withOpacity(0.2),
-            filled: true,
-            enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(30),
-                borderSide: const BorderSide(color: Colors.transparent)),
-            focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(30),
-                borderSide: const BorderSide(color: Colors.transparent)),
-            border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(30),
-                borderSide: const BorderSide(color: Colors.transparent))),
-      ),
-    );
-  }
-}
-
-class _CustomBottomNavigationbar extends StatelessWidget {
-  const _CustomBottomNavigationbar({
+class CustomBottomNavigationbar extends StatelessWidget {
+  const CustomBottomNavigationbar({
     super.key,
   });
 
@@ -203,67 +103,3 @@ class _CustomBottomNavigationbar extends StatelessWidget {
     );
   }
 }
-
-class _CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
-  const _CustomAppbar({Key? key});
-
-  @override
-  Widget build(BuildContext context) {
-    return AppBar(
-      backgroundColor: Colors.transparent,
-      elevation: 0,
-      leading: IconButton(
-        onPressed: () {},
-        icon: const Icon(
-          Icons.grid_view_rounded,
-          color: Colors.white,
-        ),
-      ),
-      actions: [
-        Container(
-            margin: const EdgeInsets.only(right: 16),
-            child: const CircleAvatar(
-              radius: 20,
-              backgroundImage: AssetImage('assets/images/check.JPG'),
-            ))
-      ],
-    );
-  }
-
-  @override
-  Size get preferredSize => const Size.fromHeight(56.0);
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
